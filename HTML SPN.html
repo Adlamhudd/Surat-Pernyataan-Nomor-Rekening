@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SPN Form</title>
+    <style>
+        body { font-family: Arial, sans-serif; max-width: 800px; margin: 0 auto; padding: 20px; }
+        .form-section { margin-bottom: 20px; padding: 15px; border: 1px solid #ddd; border-radius: 5px; }
+        label { display: block; margin-bottom: 5px; font-weight: bold; }
+        input, select { width: 100%; padding: 8px; margin-bottom: 10px; border: 1px solid #ddd; border-radius: 4px; }
+        .required::after { content: " *"; color: red; }
+        .submit-btn { background-color: #3498db; color: white; padding: 10px 15px; border: none; border-radius: 4px; cursor: pointer; }
+    </style>
+</head>
+<body>
+    <h1>SPN Form</h1>
+    
+    <form action="process_form.php" method="post" enctype="multipart/form-data">
+        <!-- Cabang -->
+        <div class="form-section">
+            <label for="cabang" class="required">Cabang</label>
+            <select id="cabang" name="cabang" required>
+                <option value="">-- Pilih --</option>
+                <option value="IGR AMB">IGR AMB</option>
+                <option value="IGR BDG">IGR BDG</option>
+                <!-- Other cabang options -->
+            </select>
+        </div>
+
+        <!-- Vendor Info -->
+        <div class="form-section">
+            <label for="vendor_num" class="required">Vendor NUM</label>
+            <input type="text" id="vendor_num" name="vendor_num" required>
+            
+            <label for="vendor_site" class="required">Vendor Site</label>
+            <input type="text" id="vendor_site" name="vendor_site" required>
+        </div>
+
+        <!-- Bank -->
+        <div class="form-section">
+            <label for="bank_supplier" class="required">Bank Supplier</label>
+            <select id="bank_supplier" name="bank_supplier" required>
+                <option value="">-- Pilih --</option>
+                <option value="BCA">BCA</option>
+                <option value="BRI">BRI</option>
+                <!-- Other bank options -->
+            </select>
+        </div>
+
+        <!-- Account Info -->
+        <div class="form-section">
+            <label for="nama_rekening" class="required">Atas Nama Rekening</label>
+            <input type="text" id="nama_rekening" name="nama_rekening" required>
+            
+            <label for="nomor_rekening" class="required">Nomor Rekening</label>
+            <input type="text" id="nomor_rekening" name="nomor_rekening" required>
+        </div>
+
+        <!-- Email -->
+        <div class="form-section">
+            <label for="email_supplier" class="required">Email Supplier</label>
+            <input type="text" id="email_supplier" name="email_supplier" placeholder="email1@contoh.com; email2@contoh.com" required>
+        </div>
+
+        <!-- File Upload -->
+        <div class="form-section">
+            <label for="file_spn" class="required">File SPN (PDF)</label>
+            <input type="file" id="file_spn" name="file_spn" accept=".pdf" required>
+        </div>
+
+        <button type="submit" class="submit-btn">Submit</button>
+    </form>
+</body>
+</html>
