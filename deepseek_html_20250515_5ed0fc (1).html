@@ -1,0 +1,246 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Formulir SPN</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            line-height: 1.6;
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 20px;
+            color: #333;
+        }
+        h1 {
+            color: #2c3e50;
+            border-bottom: 2px solid #3498db;
+            padding-bottom: 10px;
+        }
+        .form-section {
+            margin-bottom: 25px;
+            padding: 15px;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+            background-color: #f9f9f9;
+        }
+        .form-group {
+            margin-bottom: 15px;
+        }
+        label {
+            display: block;
+            margin-bottom: 5px;
+            font-weight: bold;
+        }
+        input[type="text"],
+        input[type="email"],
+        select {
+            width: 100%;
+            padding: 8px;
+            border: 1px solid #ddd;
+            border-radius: 4px;
+            box-sizing: border-box;
+        }
+        .required::after {
+            content: " *";
+            color: red;
+        }
+        .file-upload {
+            margin-top: 10px;
+        }
+        .submit-btn {
+            background-color: #3498db;
+            color: white;
+            padding: 10px 15px;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+            font-size: 16px;
+        }
+        .submit-btn:hover {
+            background-color: #2980b9;
+        }
+        .note {
+            font-size: 0.8em;
+            color: #666;
+            font-style: italic;
+        }
+    </style>
+</head>
+<body>
+    <h1>Formulir 1</h1>
+    <p>Input SPN berdasarkan Fisik SPN (PDF)<br>
+    Jika menginput berdasarkan Fisik maka tidak perlu melampirkan Excel</p>
+
+    <form action="process_form.php" method="post" enctype="multipart/form-data">
+        <div class="form-section">
+            <h2>Cabang</h2>
+            <div class="form-group">
+                <label for="cabang" class="required">Pilih Cabang</label>
+                <select id="cabang" name="cabang" required>
+                    <option value="">-- Pilih --</option>
+                    <option value="IGR AMB">IGR AMB</option>
+                    <option value="IGR BDG">IGR BDG</option>
+                    <option value="IGR BDL">IGR BDL</option>
+                    <option value="IGR BGR">IGR BGR</option>
+                    <option value="IGR BKS">IGR BKS</option>
+                    <option value="IGR BMS">IGR BMS</option>
+                    <option value="IGR BTM">IGR BTM</option>
+                    <option value="IGR CKL">IGR CKL</option>
+                    <option value="IGR CPG">IGR CPG</option>
+                    <option value="IGR CPT">IGR CPT</option>
+                    <option value="IGR GTO">IGR GTO</option>
+                    <option value="IGR JBI">IGR JBI</option>
+                    <option value="IGR KMY">IGR KMY</option>
+                    <option value="IGR KRI">IGR KRI</option>
+                    <option value="IGR KRW">IGR KRW</option>
+                    <option value="IGR MDN">IGR MDN</option>
+                    <option value="IGR MDO">IGR MDO</option>
+                    <option value="IGR MKS">IGR MKS</option>
+                    <option value="IGR MLG">IGR MLG</option>
+                    <option value="IGR PKU">IGR PKU</option>
+                    <option value="IGR PLG">IGR PLG</option>
+                    <option value="IGR PTK">IGR PTK</option>
+                    <option value="IGR PWT">IGR PWT</option>
+                    <option value="IGR SBI">IGR SBI</option>
+                    <option value="IGR SBY">IGR SBY</option>
+                    <option value="IGR SGR">IGR SGR</option>
+                    <option value="IGR SLO">IGR SLO</option>
+                    <option value="IGR SMD">IGR SMD</option>
+                    <option value="IGR SMG">IGR SMG</option>
+                    <option value="IGR TGR">IGR TGR</option>
+                    <option value="IGR YOG">IGR YOG</option>
+                </select>
+            </div>
+        </div>
+
+        <div class="form-section">
+            <h2>Vendor NUM (diambil dari Kode Group) *</h2>
+            <div class="form-group">
+                <input type="text" id="vendor_num" name="vendor_num" required placeholder="Masukkan Vendor NUM">
+            </div>
+        </div>
+
+        <div class="form-section">
+            <h2>Vendor Site *</h2>
+            <div class="form-group">
+                <input type="text" id="vendor_site" name="vendor_site" required placeholder="Masukkan Vendor Site">
+            </div>
+        </div>
+
+        <div class="form-section">
+            <h2>Bank Supplier *</h2>
+            <div class="form-group">
+                <label for="bank_supplier" class="required">Pilih Bank</label>
+                <select id="bank_supplier" name="bank_supplier" required>
+                    <option value="">-- Pilih --</option>
+                    <option value="AGRONIAGA">AGRONIAGA</option>
+                    <option value="ARTHA GRAHA">ARTHA GRAHA</option>
+                    <option value="BCA">BCA</option>
+                    <option value="BNI">BNI</option>
+                    <option value="BNI SYARIAH">BNI SYARIAH</option>
+                    <option value="BRI">BRI</option>
+                    <option value="BTN">BTN</option>
+                    <option value="BTN SYARIAH">BTN SYARIAH</option>
+                    <option value="BTPN">BTPN</option>
+                    <option value="BUKOPIN">BUKOPIN</option>
+                    <option value="BUMI ARTA">BUMI ARTA</option>
+                    <option value="CAPITAL">CAPITAL</option>
+                    <option value="CHINA CONSTRUCTION">CHINA CONSTRUCTION</option>
+                    <option value="CIMB">CIMB</option>
+                    <option value="CITIBANK">CITIBANK</option>
+                    <option value="COMMONWEALTH">COMMONWEALTH</option>
+                    <option value="DANAMON">DANAMON</option>
+                    <option value="DBS">DBS</option>
+                    <option value="DEUTSCHE">DEUTSCHE</option>
+                    <option value="DKI">DKI</option>
+                    <option value="GANESHA">GANESHA</option>
+                    <option value="HANA">HANA</option>
+                    <option value="HSBC">HSBC</option>
+                    <option value="IBK">IBK</option>
+                    <option value="ICBC">ICBC</option>
+                    <option value="INA">INA</option>
+                    <option value="INDEX">INDEX</option>
+                    <option value="INDIA">INDIA</option>
+                    <option value="J TRUST">J TRUST</option>
+                    <option value="JASA JAKARTA">JASA JAKARTA</option>
+                    <option value="MALUKU MALUT">MALUKU MALUT</option>
+                    <option value="MANDIRI">MANDIRI</option>
+                    <option value="MASPION">MASPION</option>
+                    <option value="MAYAPADA">MAYAPADA</option>
+                    <option value="MAYBANK">MAYBANK</option>
+                    <option value="MAYORA">MAYORA</option>
+                    <option value="MEGA">MEGA</option>
+                    <option value="MEGA SYARIAH">MEGA SYARIAH</option>
+                    <option value="MESTIKA DHARMA">MESTIKA DHARMA</option>
+                    <option value="MNC">MNC</option>
+                    <option value="MUAMALAT">MUAMALAT</option>
+                    <option value="MUFG">MUFG</option>
+                    <option value="MULTIARTA">MULTIARTA</option>
+                    <option value="NOBU">NOBU</option>
+                    <option value="OCBC NISP">OCBC NISP</option>
+                    <option value="OKE">OKE</option>
+                    <option value="PANIN">PANIN</option>
+                    <option value="PEMBANGUNAN DAERAH DIY">PEMBANGUNAN DAERAH DIY</option>
+                    <option value="PEMBANGUNAN DAERAH JABAR">PEMBANGUNAN DAERAH JABAR</option>
+                    <option value="PEMBANGUNAN DAERAH JATIM">PEMBANGUNAN DAERAH JATIM</option>
+                    <option value="PEMBANGUNAN DAERAH KALTIM">PEMBANGUNAN DAERAH KALTIM</option>
+                    <option value="PEMBANGUNAN DAERAH KALSEL">PEMBANGUNAN DAERAH KALSEL</option>
+                    <option value="PEMBANGUNAN DAERAH SULUT">PEMBANGUNAN DAERAH SULUT</option>
+                    <option value="PERMATA">PERMATA</option>
+                    <option value="PERMATA SYARIAH">PERMATA SYARIAH</option>
+                    <option value="PRIMA MASTER">PRIMA MASTER</option>
+                    <option value="QNB">QNB</option>
+                    <option value="RABOBANK">RABOBANK</option>
+                    <option value="RESONA PERDANA">RESONA PERDANA</option>
+                    <option value="RIAU KEPRI">RIAU KEPRI</option>
+                    <option value="SAHABAT SAMPOERNA">SAHABAT SAMPOERNA</option>
+                    <option value="SINAR MAS">SINAR MAS</option>
+                    <option value="STANDARD CHARTERED">STANDARD CHARTERED</option>
+                    <option value="SULSELBAR">SULSELBAR</option>
+                    <option value="SUMSEL BABEL">SUMSEL BABEL</option>
+                    <option value="SUMUT">SUMUT</option>
+                    <option value="SYARIAH INDONESIA">SYARIAH INDONESIA</option>
+                    <option value="UOB">UOB</option>
+                    <option value="BJB / JABAR BANTEN">BJB / JABAR BANTEN</option>
+                </select>
+            </div>
+        </div>
+
+        <div class="form-section">
+            <h2>Atas Nama Rekening Supplier *</h2>
+            <div class="form-group">
+                <input type="text" id="nama_rekening" name="nama_rekening" required placeholder="Nama Rekening Supplier">
+            </div>
+        </div>
+
+        <div class="form-section">
+            <h2>Nomor Rekening (tidak perlu tanda) *</h2>
+            <div class="form-group">
+                <input type="text" id="nomor_rekening" name="nomor_rekening" required placeholder="Nomor Rekening">
+                <p class="note">Tidak perlu memasukkan tanda baca atau spasi</p>
+            </div>
+        </div>
+
+        <div class="form-section">
+            <h2>Email Supplier (Maks 2 Email dengan pemisah ; ) *</h2>
+            <div class="form-group">
+                <input type="text" id="email_supplier" name="email_supplier" required placeholder="email1@contoh.com; email2@contoh.com">
+                <p class="note">Pisahkan multiple email dengan titik koma (;)</p>
+            </div>
+        </div>
+
+        <div class="form-section">
+            <h2>File SPN (PDF) *</h2>
+            <div class="form-group">
+                <label for="file_spn" class="required">Upload SPN</label>
+                <input type="file" id="file_spn" name="file_spn" accept=".pdf" required class="file-upload">
+                <p class="note">Upload 1 file yang didukung: PDF. Maks 10 MB.</p>
+            </div>
+        </div>
+
+        <button type="submit" class="submit-btn">Submit Formulir</button>
+    </form>
+</body>
+</html>
